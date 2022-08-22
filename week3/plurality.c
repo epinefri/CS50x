@@ -1,7 +1,10 @@
-#include <cs50.h>
+/* simulates a plurality vote election; 
+complete the vote and print_winner functions*/
+
 #include <stdio.h>
 #include <string.h>
-
+#include <stdbool.h>
+#include <stdlib.h>
 // Max number of candidates
 #define MAX 9
 
@@ -9,7 +12,7 @@
 // Candidates have name and vote count
 typedef struct
 {
-    string name;
+    char* name;
     int votes;
 }
 candidate;
@@ -21,15 +24,15 @@ candidate candidates[MAX];
 int candidate_count;
 
 // Function prototypes
-bool vote(string name);
+bool vote(char* name);
 void print_winner(void);
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     // Check for invalid usage
     if (argc < 2)
     {
-        printf("Usage: plurality [candidate ...]\n");
+        printf("Usage: plurality [candidates ...]\n");
         return 1;
     }
 
@@ -46,18 +49,23 @@ int main(int argc, string argv[])
         candidates[i].votes = 0;
     }
 
-    int voter_count = get_int("Number of voters: ");
+    int voter_count;
+    printf("Number of voters: ");
+    scanf("%i", &voter_count);
 
     // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
-        string name = get_string("Vote: ");
+        char* name = malloc(sizeof(char) * 20);
+        printf("Vote: ");
+        scanf("%s", name);
 
         // Check for invalid vote
         if (!vote(name))
         {
             printf("Invalid vote.\n");
         }
+        free(name);
     }
 
     // Display winner of election
@@ -65,7 +73,7 @@ int main(int argc, string argv[])
 }
 
 // Update vote totals given a new vote
-bool vote(string name)
+bool vote(char* name)
 {
     // TODO
     for (int i = 0; i < candidate_count; i++)

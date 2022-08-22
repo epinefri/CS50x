@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-//encipher by the formula: ciphertext[i] = (plaintext[i] + key) % 26
+//encipher by the formula ciphertext[i] = (plaintext[i] + key) % 26
 
     char ciphertext[strlen(plaintext)];
     printf("ciphertext: ");
