@@ -1,10 +1,16 @@
+/* prompts the user for their name and then prints "hello, so-and-so" */
+
 #include <stdio.h>
 
 
 int main(void)
 {
+    char p[20];
+
 //name input
-   // string name = get_string("What's your name? ");
+    printf("What's your name? ");
+    scanf("%s", p);
+
 //print result
-    printf("hello\n");
+    printf("Hello, %s! :)\n", p);
 }

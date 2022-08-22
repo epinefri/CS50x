@@ -1,4 +1,4 @@
-#include <cs50.h>
+/* implement the functions get_cents, calculate_quarters, calculate_dimes, calculate_nckels, calculate_pennies */
 #include <stdio.h>
 
 int get_cents(void);
@@ -40,7 +40,8 @@ int get_cents(void)
     int cents;
     do
     {
-        cents = get_int("Cents: ");
+        printf("Cents: ");
+        scanf("%i", &cents);
     }
     while (cents < 0);
     return cents;
