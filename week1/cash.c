@@ -1,4 +1,9 @@
-/* implement the functions get_cents, calculate_quarters, calculate_dimes, calculate_nckels, calculate_pennies */
+/* prompts the user for the number of cents that a customer is owed and then prints the
+smallest number of coins with which that change can be made;
+
+To do: implement the functions get_cents, calculate_quarters, calculate_dimes,
+calculate_nickels, calculate_pennies */
+
 #include <stdio.h>
 
 int get_cents(void);
@@ -35,6 +40,7 @@ int main(void)
     printf("%i\n", coins);
 }
 
+// to do:
 int get_cents(void)
 {
     int cents;

@@ -1,4 +1,6 @@
-#include <cs50.h>
+/*prompts the user for a credit card number and then reports
+whether it is a valid American Express, MasterCard, or Visa card number*/
+
 #include <stdio.h>
 
 int count(long card);
@@ -8,7 +10,9 @@ int do_sum2(long card);
 int main(void)
 {
     //get input
-    long card = get_long("Card number input: ");
+    long card;
+    printf("Card number input: ");
+    scanf("%li", &card);
 
     // count digits
     int digits = count(card);
@@ -16,21 +20,25 @@ int main(void)
     // find first 2 digits
     int first = first_dig(card);
 
-//check if valid
+// check if input is a valid card number (Luhn's Algorithm)
     long sum = do_sum(card);
     long sum2 = do_sum2(card * 10);
     if ((sum + sum2) % 10 == 0)
     {
-        //check type of card
-        if ((digits == 15) && ((first == 34) || (first == 37)))
+        // check type of card
+        if ((digits == 15) && ((first == 34) || 
+            (first == 37)))
         {
             printf("AMEX\n");
         }
-        else if (((digits == 13) || (digits == 16)) && (first / 10 == 4))
+        else if (((digits == 13) || 
+                  (digits == 16)) && (first / 10 == 4))
         {
             printf("VISA\n");
         }
-        else if ((digits == 16) && ((first == 51) || (first == 52) || (first == 53) || (first == 54) || (first == 55)))
+        else if ((digits == 16) && ((first == 51) || 
+                 (first == 52) || (first == 53) || 
+                 (first == 54) || (first == 55)))
         {
             printf("MASTERCARD\n");
         }
@@ -45,7 +53,7 @@ int main(void)
     }
 }
 
-//count digits
+// count digits
 int count(long card)
 {
     int digits = 0;
@@ -58,7 +66,7 @@ int count(long card)
     return digits;
 }
 
-//find first 2 digits
+// find first 2 digits
 int first_dig(long card)
 {
     do
@@ -70,7 +78,7 @@ int first_dig(long card)
 }
 
 
-//double sum
+// double sum
 int do_sum(long card)
 {
     long digit = 0;
@@ -93,7 +101,7 @@ int do_sum(long card)
     return sum;
 }
 
-//single sum
+// single sum
 int do_sum2(long card)
 {
     long digit = 0;

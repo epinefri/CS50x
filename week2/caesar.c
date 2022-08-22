@@ -1,21 +1,23 @@
-#include <cs50.h>
+/* encrypts messages using Caesar’s cipher*/
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 
-//get key
+// get key
 int is_valid(char argv[1]);
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
 // if argv[1] is a digit
-//get plaintext
-    string plaintext;
+// get plaintext (the text to be "rotated")
+    char* plaintext = malloc(sizeof(char) * 255);
     int key, valid;
     if ((argv[1] != 0) && (argc == 2))
     {
-        plaintext = get_string("plaintext:  ");
+        printf("plaintext:  ");
+        scanf("%s", plaintext);
         //convert argument (key) to integer (atoi included in stdlib.h)
         key = atoi(argv[1]);
     }
@@ -26,7 +28,7 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-//encipher //formula ciphertext[i] = (plaintext[i] + key) % 26
+//encipher by the formula: ciphertext[i] = (plaintext[i] + key) % 26
 
     char ciphertext[strlen(plaintext)];
     printf("ciphertext: ");
@@ -57,6 +59,7 @@ int main(int argc, string argv[])
     }
     printf("\n");
     return 0;
+    free(plaintext);
 }
 
 

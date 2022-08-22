@@ -1,48 +1,62 @@
-#include <ctype.h>
 #include <cs50.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
-// Points assigned to each letter of the alphabet
-int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
+//get key
+int is_valid(char argv[1]);
 
-int compute_score(string word);
-
-int main(void)
+int main(int argc, string argv[])
 {
-    // Get input words from both players
-    string word1 = get_string("Player 1: ");
-    string word2 = get_string("Player 2: ");
+// if argv[1] is a digit
+//get plaintext
+    string plaintext;
+    int key, valid;
+    if ((argv[1] != 0) && (argc == 2))
+    {
+        plaintext = get_string("plaintext:  ");
+        //convert argument (key) to integer (atoi included in stdlib.h)
+        key = atoi(argv[1]);
+    }
 
-    // Score both words
-    int score1 = compute_score(word1);
-    int score2 = compute_score(word2);
+//display Usage: ./caesar key if invalid and return 1 from main
+    else
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+//encipher //formula ciphertext[i] = (plaintext[i] + key) % 26
 
-    // TODO: Print the winner
-    if (score1 > score2)
+    char ciphertext[strlen(plaintext)];
+    printf("ciphertext: ");
+
+    for (int i = 0; i < strlen(plaintext); i++)
     {
-        printf("Player 1 wins!\n");
-    }
-    if (score1 < score2)
-    {
-        printf("Player 2 wins!\n");
-    }
-    else if (score1 == score2)
-    {
-        printf("Tie!\n");
-    }
-}
-int compute_score(string word)
-{
-    int score = 0;
-    for (int i = 0; i < strlen(word); i++)
-        if (islower(word[i]))
+        //if alphabetic, shift by key + formula
+        if (isalpha(plaintext[i]))
         {
-            score += POINTS[word[i] - 97];
+            if (isupper(plaintext[i]))
+            {
+                int index = plaintext[i] - 65;
+                ciphertext[i] = (index + key) % 26;
+                printf("%c", (ciphertext[i] + 65));
+            }
+            else if (islower(plaintext[i]))
+            {
+                int index = plaintext[i] - 97;
+                ciphertext[i] = (index + key) % 26;
+                printf("%c", (ciphertext[i] + 97));
+            }
         }
-        else if (isupper(word[i]))
+        //if not alphabetic, leave as is
+        else
         {
-            score += POINTS[word[i] - 65];
+            printf("%c", plaintext[i]);
         }
-    return score;
+    }
+    printf("\n");
+    return 0;
 }
+
+
