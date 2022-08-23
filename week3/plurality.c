@@ -1,5 +1,5 @@
 /* simulates a plurality vote election; 
-complete the vote and print_winner functions*/
+to do: complete the vote and print_winner functions*/
 
 #include <stdio.h>
 #include <string.h>
@@ -9,7 +9,7 @@ complete the vote and print_winner functions*/
 #define MAX 9
 
 
-// Candidates have name and vote count
+// Candidates have a name and a vote count
 typedef struct
 {
     char* name;
@@ -49,6 +49,7 @@ int main(int argc, char* argv[])
         candidates[i].votes = 0;
     }
 
+    // Prompt user for number of voters
     int voter_count;
     printf("Number of voters: ");
     scanf("%i", &voter_count);
@@ -56,7 +57,7 @@ int main(int argc, char* argv[])
     // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
-        char* name = malloc(sizeof(char) * 20);
+        char name[20];
         printf("Vote: ");
         scanf("%s", name);
 
@@ -65,7 +66,7 @@ int main(int argc, char* argv[])
         {
             printf("Invalid vote.\n");
         }
-        free(name);
+        
     }
 
     // Display winner of election
@@ -104,7 +105,7 @@ void print_winner(void)
     {
         if (candidates[i].votes == winner)
         {
-            printf("%s\n", candidates[i].name);
+            printf("The winner is %s.\n", candidates[i].name);
         }
     }
     return;
