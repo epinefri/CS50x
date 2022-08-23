@@ -26,10 +26,11 @@ _Solutions to the CS50 labs and problem sets._
   
 * _Week 2 Arrays_
   * [caesar.c](week2/caesar.c) - encrypts messages using Caesar’s cipher - _[specification](https://cs50.harvard.edu/x/2022/psets/2/caesar/)_
-  * [name.c](weekX/name.c) - description - _[specification](https://cs50.harvard.edu/x/2022/psets/X/name/)_
+  * [scrabble.c](week2/scrabble.c) - determines which of two Scrabble words is worth more - _[specification](https://cs50.harvard.edu/x/2022/labs/2)_
   
 * _Week 3 Algorithms_
-  * [name.c](weekX/name.c) - description - _[specification](https://cs50.harvard.edu/x/2022/psets/X/name/)_
+  * [plurality.c](week3/plurality.c) - simulates a plurality vote election - _[specification](https://cs50.harvard.edu/x/2022/psets/3/plurality/)_
+  * [runoff.c](week3/runoff.c) - description- _[specification](https://cs50.harvard.edu/x/2022/psets/3/runoff/)_
 
 * _Week 4 Memory_
   * [name.c](weekX/name.c) - description - _[specification](https://cs50.harvard.edu/x/2022/psets/X/name/)_
