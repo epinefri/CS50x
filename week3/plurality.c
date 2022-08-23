@@ -4,7 +4,7 @@ to do: complete the vote and print_winner functions*/
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <stdlib.h>
+
 // Max number of candidates
 #define MAX 9
 

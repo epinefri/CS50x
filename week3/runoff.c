@@ -1,6 +1,9 @@
-#include <cs50.h>
+/* simulate an instant runoff election;
+to do: complete functions vote, tabulate, print_winner, find_min, is_tie, eliminate */
+
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -12,7 +15,7 @@ int preferences[MAX_VOTERS][MAX_CANDIDATES];
 // Candidates have name, vote count, eliminated status
 typedef struct
 {
-    string name;
+    char* name;
     int votes;
     bool eliminated;
 }
@@ -26,19 +29,19 @@ int voter_count;
 int candidate_count;
 
 // Function prototypes
-bool vote(int voter, int rank, string name);
+bool vote(int voter, int rank, char* name);
 void tabulate(void);
 bool print_winner(void);
 int find_min(void);
 bool is_tie(int min);
 void eliminate(int min);
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     // Check for invalid usage
     if (argc < 2)
     {
-        printf("Usage: runoff [candidate ...]\n");
+        printf("Usage: runoff [candidates ...]\n");
         return 1;
     }
 
@@ -56,7 +59,10 @@ int main(int argc, string argv[])
         candidates[i].eliminated = false;
     }
 
-    voter_count = get_int("Number of voters: ");
+    int voter_count;
+    printf("Number of voters: ");
+    scanf("%i", &voter_count);
+
     if (voter_count > MAX_VOTERS)
     {
         printf("Maximum number of voters is %i\n", MAX_VOTERS);
@@ -70,7 +76,9 @@ int main(int argc, string argv[])
         // Query for each rank
         for (int j = 0; j < candidate_count; j++)
         {
-            string name = get_string("Rank %i: ", j + 1);
+            printf("Rank %i: ", j + 1);
+            char name[20];
+            scanf("%s", name);
 
             // Record vote, unless it's invalid
             if (!vote(i, j, name))
@@ -127,7 +135,7 @@ int main(int argc, string argv[])
 }
 
 // Record preference if vote is valid
-bool vote(int voter, int rank, string name)
+bool vote(int voter, int rank, char* name)
 {
     // TODO
     for (int i = 0; i < candidate_count; i++)

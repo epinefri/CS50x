@@ -1,16 +1,20 @@
-#include <cs50.h>
+/* calculates the approximate grade level needed to comprehend some text */
+
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
-int count_letters(string text);
-int count_words(string text);
-int count_sentences(string text);
+int count_letters(char* text);
+int count_words(char* text);
+int count_sentences(char* text);
 
 int main(void)
 {
     //get input
-    string text = get_string("Enter text: ");
+    char *text = malloc(sizeof(char) * 500);
+    printf("Enter text: ");
+    scanf("%s", text);
 
     //count letters, words, sentences
     int letters = count_letters(text);
@@ -36,7 +40,7 @@ int main(void)
 }
 
 
-int count_letters(string text)
+int count_letters(char* text)
 {
     int letters = 0;
     for (int i = 0; i < strlen(text); i++)
@@ -49,7 +53,7 @@ int count_letters(string text)
     return letters;
 }
 
-int count_words(string text)
+int count_words(char* text)
 {
     int words = 1;
     for (int i = 0; i < strlen(text); i++)
@@ -66,7 +70,7 @@ int count_words(string text)
     return words;
 }
 
-int count_sentences(string text)
+int count_sentences(char* text)
 {
     int sentences = 0;
     for (int i = 0; i < strlen(text); i++)
