@@ -19,9 +19,9 @@ _Solutions to the CS50 labs and problem sets._
 
 * _Week 1 C_
   * [hello.c](week1/hello.c), [hello2.c](week1/hello2.c) - prompts the user for their name and then prints "hello, so-and-so" - _[specification](https://cs50.harvard.edu/x/2022/psets/1/hello/)_
-  * [mario.c](week1/mario.c) - prints a pyramid pattern of hashtags - _[specification](https://cs50.harvard.edu/x/2022/psets/1/mario/less/)_
-  * [mario2.c](week1/mario2.c) - prints two mirrored pyramids of hashtags - _[specification](https://cs50.harvard.edu/x/2022/psets/1/mario/more/)_
-  * [cash.c](week1/cash.c) - prompts for the number of cents that a customer is owed and prints the smallest number of coins with which that change can be made  - _[specification](https://cs50.harvard.edu/x/2022/psets/1/cash/)_
+  * [mario.c](week1/mario.c) - prints a half-pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/1/mario/less/)_
+  * [mario2.c](week1/mario2.c) - prints a pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/1/mario/more/)_
+  * [cash.c](week1/cash.c) - calculates the minimum number of coins required to give a user  - _[specification](https://cs50.harvard.edu/x/2022/psets/1/cash/)_
   * [credit.c](week1/credit.c) - prompts the user for a credit card number and then reports whether it is a valid American Express, MasterCard, or Visa card number - _[specification](https://cs50.harvard.edu/x/2022/psets/1/credit/)_ 
   
 * _Week 2 Arrays_
@@ -38,8 +38,14 @@ _Solutions to the CS50 labs and problem sets._
 
 * _Week 5 Data Structures_
   * in progress
+  
 * _Week 6 Python_
-  * in progress
+  * [hello.py](week6/hello.py) - prints "Hello, so-and-so" - _[specification](https://cs50.harvard.edu/x/2022/psets/6/hello/)_
+  * [mario.py](week6/mario.py) - prints a half-pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/6/mario/less/)_
+  * [mario2.py](week6/mario2.py) - prints a pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/6/mario/more/)_
+  * [cash.py](week6/cash.py) - calculates the minimum number of coins required to give a user - _[specification](https://cs50.harvard.edu/x/2022/psets/6/cash/)_
+ 
+ 
 * _Week 7 SQL_
   * in progress
 * _Week 8 HTML, CSS, JavaScript_
