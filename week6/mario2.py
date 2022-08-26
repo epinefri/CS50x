@@ -1,4 +1,4 @@
-# prints out a double half-pyramid of a specified height
+# prints a pyramid of a specified height
 
 while True:
     try:
