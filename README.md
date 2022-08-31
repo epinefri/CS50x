@@ -11,9 +11,6 @@ _Solutions to the CS50 labs and problem sets._
 * _C_
 * _python_
 * _SQL_
-* _ _
-* _ _
-
 
 ## Contents
 
