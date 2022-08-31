@@ -47,8 +47,8 @@ _Solutions to the CS50 labs and problem sets._
  
  
 * _Week 7 SQL_
-  * [songs](week7/songs) - SQL queries to answer questions about a database of songs - _[specification](https://cs50.harvard.edu/x/2022/labs/7/)_
-  * [movies](week7/movies) - SQL queries to answer questions about a database of movies - _[specification](https://cs50.harvard.edu/x/2022/psets/7/movies/)_
+  * [songs](week7/songs) - SQL queries to answer questions about a Spotify database of songs - _[specification](https://cs50.harvard.edu/x/2022/labs/7/)_
+  * [movies](week7/movies) - SQL queries to answer questions about a IMdb database of movies - _[specification](https://cs50.harvard.edu/x/2022/psets/7/movies/)_
   * [fiftyville](week7/fiftyville) - SQL queries to solve a mystery - _[specification](https://cs50.harvard.edu/x/2022/psets/7/fiftyville/)_
   
   
