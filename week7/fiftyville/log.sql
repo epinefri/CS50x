@@ -1,11 +1,18 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 
+SELECT char(10);
+SELECT "Crime scene reports";
+SELECT char(10);
+
 SELECT description, street, day, month, year
 FROM crime_scene_reports
 WHERE day=28 AND month=7 AND year=2021;
 
--- > Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery.|Humphrey Street|28|7|2021
+-- > Theft took place at 10:15am at the Humphrey Street bakery
 
+SELECT char(10);
+SELECT "Interviews";
+SELECT char(10);
 
 SELECT transcript, name
 FROM interviews
@@ -14,27 +21,12 @@ WHERE day=28 AND month=7 AND year=2021;
 -- > within ten minutes of the theft, I saw the thief get into a car - cars that left the parking lot
 -- > this morning by the ATM on Leggett Street and saw the thief there withdrawing some money
 -- > As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take 
--- > the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket.|Raymond
+-- > the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket
 
-SELECT activity, license_plate, hour, minute
-FROM bakery_security_logs
-WHERE day=28 AND month=7 AND year=2021 AND hour=10 AND minute BETWEEN 15 AND 25;
+SELECT char(10);
+SELECT "Find earliest flight";
+SELECT char(10);
 
--- > licence plates around 10:15
-
-SELECT name, phone_number, passport_number, license_plate
-FROM people 
-WHERE id IN
-    (SELECT person_id
-    FROM bank_accounts
-    WHERE account_number IN
-        (SELECT account_number
-        FROM atm_transactions
-        WHERE atm_location = 'Leggett Street'
-            AND transaction_type = 'withdraw'
-            AND day=28 AND month=7 AND year=2021));
-
--- > name, phone, passport, licence plate
 
 SELECT city, hour, minute
 FROM airports
@@ -56,17 +48,20 @@ ORDER BY hour, minute;
 
 --> earliest flights: boston 8:05, nyc 8:20
 
+SELECT char(10);
+SELECT "Suspects";
+SELECT char(10);
 
 SELECT name
 FROM people
-WHERE license_plate IN 
+WHERE license_plate IN
     (SELECT license_plate
     FROM bakery_security_logs
     WHERE day=28 
         AND month=7 
         AND year=2021 
         AND hour=10 
-        AND minute BETWEEN 15 AND 25)
+        AND minute BETWEEN 15 AND 25) -- people who left the bakery parking lot within 10 minutes
 AND id IN
     (SELECT person_id
     FROM bank_accounts
@@ -75,34 +70,38 @@ AND id IN
         FROM atm_transactions
         WHERE atm_location = 'Leggett Street'
             AND transaction_type = 'withdraw'
-            AND day=28 AND month=7 AND year=2021))
+            AND day=28 AND month=7 AND year=2021)) -- people who withdrew money from the legget atm
 AND phone_number IN
     (SELECT caller
     FROM phone_calls
     WHERE day=28 
         AND month=7 
         AND year=2021 
-        AND duration<60);
+        AND duration<60); -- people who've had <1min calls
 
 --> diana, bruce
 
+SELECT char(10);
+SELECT "Passengers";
+SELECT char(10);
+
 SELECT name
 FROM people
-WHERE name IN ('Diana', 'Bruce')
-AND passport_number IN
+WHERE passport_number IN
     (SELECT passport_number
     FROM passengers
     WHERE flight_id IN 
-        (SELECT flights.id
+        (SELECT id
         FROM flights
         WHERE destination_airport_id IN
-            (SELECT airports.id
+            (SELECT id
             FROM airports
-            WHERE city = 'Boston')));
+            WHERE city IN ('Boston', 'New York City'))))
+AND name IN ('Diana', 'Bruce');
 
---> DIANA LEFT FOR BOSTON
 
 
+/*
 SELECT name
 FROM people
 WHERE phone_number IN
