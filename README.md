@@ -11,8 +11,8 @@ _Solutions to the CS50 labs and problem sets._
 * _C_
 * _python_
 * _SQL_
-* _HTML, CSS, JavaScript_
-* _Flask_
+* _ _
+* _ _
 
 
 ## Contents
@@ -44,7 +44,7 @@ _Solutions to the CS50 labs and problem sets._
   * [mario.py](week6/mario.py) - prints a half-pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/6/mario/less/)_
   * [mario2.py](week6/mario2.py) - prints a pyramid of a specified height - _[specification](https://cs50.harvard.edu/x/2022/psets/6/mario/more/)_
   * [cash.py](week6/cash.py) - calculates the minimum number of coins required to give a user - _[specification](https://cs50.harvard.edu/x/2022/psets/6/cash/)_
- 
+  * [readability.py](week6/readability.py) - outputs the grade level for a text, according to the Coleman-Liau formula - _[specification](https://cs50.harvard.edu/x/2022/psets/6/readability/)_ 
  
 * _Week 7 SQL_
   * [songs](week7/songs) - SQL queries to answer questions about a Spotify database of songs - _[specification](https://cs50.harvard.edu/x/2022/labs/7/)_
