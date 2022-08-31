@@ -1,8 +1,6 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 
-SELECT char(10);
-SELECT "Crime scene reports";
-SELECT char(10);
+SELECT "Crime scene reports:";
 
 SELECT description, street, day, month, year
 FROM crime_scene_reports
@@ -11,8 +9,7 @@ WHERE day=28 AND month=7 AND year=2021;
 -- > Theft took place at 10:15am at the Humphrey Street bakery
 
 SELECT char(10);
-SELECT "Interviews";
-SELECT char(10);
+SELECT "Interviews:";
 
 SELECT transcript, name
 FROM interviews
@@ -24,11 +21,10 @@ WHERE day=28 AND month=7 AND year=2021;
 -- > the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket
 
 SELECT char(10);
-SELECT "Find earliest flight";
-SELECT char(10);
+SELECT "Find earliest flight with a Diana or a Bruce on board";
 
 
-SELECT city, hour, minute
+SELECT full_name, city, hour, minute
 FROM airports
     JOIN flights ON airports.id = destination_airport_id
 WHERE airports.id IN
@@ -49,8 +45,7 @@ ORDER BY hour, minute;
 --> earliest flights: boston 8:05, nyc 8:20
 
 SELECT char(10);
-SELECT "Suspects";
-SELECT char(10);
+SELECT "Suspects:";
 
 SELECT name
 FROM people
@@ -61,7 +56,8 @@ WHERE license_plate IN
         AND month=7 
         AND year=2021 
         AND hour=10 
-        AND minute BETWEEN 15 AND 25) -- people who left the bakery parking lot within 10 minutes
+        AND minute BETWEEN 15 AND 25
+        AND activity = 'exit') -- people who left the bakery parking lot within 10 minutes
 AND id IN
     (SELECT person_id
     FROM bank_accounts
@@ -82,8 +78,7 @@ AND phone_number IN
 --> diana, bruce
 
 SELECT char(10);
-SELECT "Passengers";
-SELECT char(10);
+SELECT "Suspect flight passengers (potential accomplices included):";
 
 SELECT name
 FROM people
@@ -96,24 +91,51 @@ WHERE passport_number IN
         WHERE destination_airport_id IN
             (SELECT id
             FROM airports
-            WHERE city IN ('Boston', 'New York City'))))
-AND name IN ('Diana', 'Bruce');
+            WHERE hour BETWEEN 8 and 10 
+                AND day=29 AND month=7 AND year=2021)))
+AND name IN ('Diana', 'Bruce', 'Philip', 'Robin');
 
 
+SELECT char(10);
+SELECT "Accomplice:";
 
-/*
 SELECT name
 FROM people
 WHERE phone_number IN
     (SELECT receiver
     FROM phone_calls
-    WHERE caller = 
-        (SELECT phone_number
-        FROM people
-        WHERE name = 'Diana')
-    AND day=28 AND month=7 AND year=2021 AND duration < 60);
+    WHERE day=28 
+        AND month=7 
+        AND year=2021 
+        AND duration < 60 
+        AND caller IN
+            (SELECT phone_number
+            FROM people
+            WHERE name = 'Bruce'));
 
---> PHILIP
+SELECT char(10);
+SELECT "Destination:";
+
+
+SELECT full_name, city, hour, minute
+FROM airports
+    JOIN flights ON airports.id = destination_airport_id
+WHERE airports.id IN
+    (SELECT destination_airport_id
+    FROM flights
+    WHERE id IN
+        (SELECT flight_id
+        FROM passengers
+        WHERE passport_number IN
+            (SELECT passport_number
+            FROM people
+            WHERE name = 'Bruce'))
+        AND day=29 
+        AND month=7 
+        AND year=2021)
+ORDER BY hour, minute;
+
+
 
 
 

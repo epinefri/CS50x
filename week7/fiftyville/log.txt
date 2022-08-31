@@ -1,8 +1,4 @@
-
-
-Crime scene reports
-
-
+Crime scene reports:
 Vandalism took place at 12:04. No known witnesses.|Axmark Road|28|7|2021
 Shoplifting took place at 03:01. Two people witnessed the event.|Boyce Avenue|28|7|2021
 Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery.|Humphrey Street|28|7|2021
@@ -10,9 +6,7 @@ Money laundering took place at 20:30. No known witnesses.|Widenius Street|28|7|2
 Littering took place at 16:36. No known witnesses.|Humphrey Street|28|7|2021
 
 
-Interviews
-
-
+Interviews:
 “Ah,” said he, “I forgot that I had not seen you for some weeks. It is a little souvenir from the King of Bohemia in return for my assistance in the case of the Irene Adler papers.”|Jose
 “I suppose,” said Holmes, “that when Mr. Windibank came back from France he was very annoyed at your having gone to the ball.”|Eugene
 “You had my note?” he asked with a deep harsh voice and a strongly marked German accent. “I told you that I would call.” He looked from one to the other of us, as if uncertain which to address.|Barbara
@@ -22,29 +16,34 @@ As the thief was leaving the bakery, they called someone who talked to them for 
 Our neighboring courthouse has a very annoying rooster that crows loudly at 6am every day. My sons Robert and Patrick took the rooster to a city far, far away, so it may never bother us again. My sons have successfully arrived in Paris.|Lily
 
 
-Find earliest flight
+Find earliest flight with a Diana or a Bruce on board
+Logan International Airport|Boston|8|5
+LaGuardia Airport|New York City|8|20
+Logan International Airport|Boston|9|16
+LaGuardia Airport|New York City|13|55
+Logan International Airport|Boston|14|35
+Logan International Airport|Boston|16|0
+LaGuardia Airport|New York City|16|16
+LaGuardia Airport|New York City|20|16
+LaGuardia Airport|New York City|21|44
 
 
-Boston|8|5
-New York City|8|20
-Boston|9|16
-New York City|13|55
-Boston|14|35
-Boston|16|0
-New York City|16|16
-New York City|20|16
-New York City|21|44
-
-
-Suspects
-
-
+Suspects:
 Diana
 Bruce
 
 
-Passengers
-
-
-Diana
+Suspect flight passengers (potential accomplices included):
 Bruce
+
+
+Accomplice:
+Robin
+
+
+Destination:
+LaGuardia Airport|New York City|8|20
+LaGuardia Airport|New York City|13|55
+LaGuardia Airport|New York City|16|16
+LaGuardia Airport|New York City|20|16
+LaGuardia Airport|New York City|21|44
