@@ -1,3 +1,5 @@
+/* write a SQL query to list the titles of the five highest rated movies (in order) that Chadwick Boseman starred in, starting with the highest rated.*/
+
 SELECT title
 FROM movies
     JOIN ratings ON movie_id = id
